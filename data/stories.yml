@@ -1,0 +1,8 @@
+version: "2.0"
+
+stories:
+
+- story: User want more articles
+  steps:
+  - intent: ask_more_articles
+  - action: utter_more_articles

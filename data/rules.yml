@@ -1,0 +1,31 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: User want more articles
+  steps:
+  - intent: ask_more_articles
+  - action: utter_more_articles
+
+- rule: Activate Wikipedia Form
+  steps:
+    - intent: ask_search_on_wiki
+    - action: action_reset_all_slots
+    - action: wikipedia_form
+    - active_loop: wikipedia_form
+
+
+- rule: Submit Wikipedia Form
+  condition:
+  - active_loop: wikipedia_form
+  steps: 
+  - action: wikipedia_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_give_results
