@@ -34,6 +34,8 @@ slots:
     initial_value: null
     auto_fill: false
     influence_conversation: false
+
+
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -54,6 +56,8 @@ responses:
   - text: |-
       This is another article I found on wikipedia 
        {more_article}
+
+       
 actions:
 - action_give_results
 - action_reset_all_slots
